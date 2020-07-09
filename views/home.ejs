@@ -4,9 +4,13 @@
 
 <p><%= homeStartingContent %></p>
 
-<% posts.forEach(post => { %>
-    <h1><%= post.title %></h1>
-    <p><%= post.body %></p>
+<% posts.forEach(post => { %>%>
+<h1><%= post.title %></h1>
+<!-- <% let content = post.body %>
+<p><%= (content.match(/(.{1,99}\w)\s/)[1]+'...') %></p> -->
+<p><%= post.body.substring(0,100)+'...' %>
+    <a href="/posts/<%= post.title %>">Read More</a>
+</p>
 
 <% });%>
 
