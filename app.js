@@ -25,7 +25,19 @@ app.get("/", function (req, res) {
     homeStartingContent, 
     posts 
   });
+
 });
+
+app.get('/posts/:postName', function(req,res){
+  const requistedTitle = req.params.postName;
+  posts.forEach(post => {
+    const sroredTitle = post.title;
+
+    (sroredTitle===requistedTitle) 
+      ?console.log("match found")
+      :console.log("Not a match!");
+  });
+})
 
 app.get("/about", function (req, res) {
   res.render("about", { aboutContent });
